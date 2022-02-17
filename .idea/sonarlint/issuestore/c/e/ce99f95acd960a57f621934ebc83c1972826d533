@@ -1,0 +1,13 @@
+
+U
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(ª€	
+b
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(·‹İ™ûÿÿÿÿ8’’ÂËğ/
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ìªÕóÿÿÿÿÿ
+‹
+java:S13193"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(é»í³øÿÿÿÿ
+‹
+java:S13199"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¶²‘ìøÿÿÿÿ
+r	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï¨´ùÿÿÿÿ8£’ÂËğ/
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¡–¿¬
