@@ -46,4 +46,10 @@ public class UsuarioModel {
     public void setPrioridad(Integer prioridad) {
         this.prioridad = prioridad;
     }
+
+    public UsuarioModel(String nomber, String email, Integer prioridad) {
+        this.nomber = nomber;
+        this.email = email;
+        this.prioridad = prioridad;
+    }
 }

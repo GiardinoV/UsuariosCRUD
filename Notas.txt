@@ -1,0 +1,32 @@
+
+
+Inicia en el CONTROLLER, recibe la peticion web e inmediatamente manda a llamar a un 
+SERVICES, el cual ejecuta la lógica de la aplicación y utiliza los REPOSITORIES que 
+hace la conexion con la base de datos. Y el REPOSITORIES utiliza el MODELS para saber
+que tipo de info va a traer.
+
+CrudRepository es la clase que implementa la mayoria de los metodos que 
+precisamos con la base de datos. Le indico que tipo de dato es y el identificador
+EJ:CrudRepository<UsuarioModel, Long>
+
+@Autowired hace que no lo tenga que instanciar, spring la reconoce y sabe cual usar.
+
+@RequestMapping("/") dice en que direccion del servidor se va a activar esta clase
+
+@GetMapping cuando llega una peticion GET ejecuta ese metodo--se le puede indicar el path
+@GetMapping(path = "/{id}")
+
+@PostMapping para enviar info se activa ese metodo
+
+@RequestBody para guardar la info en el http
+
+Si envio el ID en el post actualiza el existente
+
+findByPrioridad no hace falta programarlo, busca segun la forma en que lo nombramos,
+tiene que ser un metodo abstract
+
+A los metodos se le pone Optional para que no pase nada si no encuentra lo que se le pide
+
+@DeleteMapping
+El metodo default de eliminar usuario no devuelve nada, entonces con el try-catch hago que
+retorne true o false.

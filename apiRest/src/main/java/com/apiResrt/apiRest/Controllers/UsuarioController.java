@@ -3,6 +3,8 @@ package com.apiResrt.apiRest.Controllers;
 import com.apiResrt.apiRest.Models.UsuarioModel;
 import com.apiResrt.apiRest.Services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -43,4 +45,11 @@ public class UsuarioController {
             return "No pudo eliminar el usuario con id "+id;
         }
     }
+
+    //Creo funcion para eliminar toda la tabla
+    @DeleteMapping(path = ("/delete"))
+    public void eliminarTabla(){
+        this.usuarioService.eliminarTabla();
+    }
+
 }
