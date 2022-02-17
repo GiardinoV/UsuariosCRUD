@@ -21,9 +21,36 @@ public class UsuarioController {
         return usuarioService.obtenerUsuarios();
     }
 
+
+   /* public ResponseEntity<Tutorial> getTutorialById(@PathVariable("id") long id) {
+        Optional<Tutorial> tutorialData = tutorialRepository.findById(id);
+
+        if (tutorialData.isPresent()) {
+            return new ResponseEntity<>(tutorialData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }*/
+
     @PostMapping
     public UsuarioModel guardarUsuario(@RequestBody UsuarioModel usuario){
         return this.usuarioService.guardarUsuario(usuario);
+    }
+
+    //Creo metodo para modificar datos por id
+    @PutMapping("/usuario/{id}")
+    public ResponseEntity<UsuarioModel> actualizarDatos(@PathVariable("id") Long id, @RequestBody UsuarioModel usuario){
+        Optional<UsuarioModel> usuarioID = usuarioService.obtenerPorId(id);
+
+        if (usuarioID.isPresent()){
+            UsuarioModel _usuario = usuarioID.get();
+            _usuario.setNomber(usuario.getNomber());
+            _usuario.setEmail(usuario.getEmail());
+            _usuario.setPrioridad(usuario.getPrioridad());
+            return new ResponseEntity<>(usuarioService.guardarUsuario(_usuario),HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping(path = "/{id}")
@@ -36,6 +63,12 @@ public class UsuarioController {
         return this.usuarioService.obtenerPorPrioridad(prioridad);
     }
 
+    //Creo metodo para buscar por email
+    @GetMapping(path = "/email")
+    public ArrayList<UsuarioModel> obtenerUsuarioPorEmail(@RequestParam("email") String email){
+        return this.usuarioService.obtenerPorEmail(email);
+    }
+
     @DeleteMapping(path = ("/{id}"))
     public String eliminarPorId(@PathVariable("id") Long id){
         boolean ok = this.usuarioService.eliminarUsuario(id);
@@ -45,11 +78,4 @@ public class UsuarioController {
             return "No pudo eliminar el usuario con id "+id;
         }
     }
-
-    //Creo funcion para eliminar toda la tabla
-    @DeleteMapping(path = ("/delete"))
-    public void eliminarTabla(){
-        this.usuarioService.eliminarTabla();
-    }
-
 }

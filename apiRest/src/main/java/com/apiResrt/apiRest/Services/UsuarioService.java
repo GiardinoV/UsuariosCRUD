@@ -25,6 +25,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public ArrayList<UsuarioModel> obtenerPorEmail(String email) {
+        return usuarioRepository.findByEmail(email);
+    }
+
     public ArrayList<UsuarioModel> obtenerPorPrioridad(Integer prioridad) {
         return usuarioRepository.findByPrioridad(prioridad);
     }
@@ -38,7 +42,4 @@ public class UsuarioService {
         }
     }
 
-    public void eliminarTabla() {
-        usuarioRepository.deleteAll();
-    }
 }

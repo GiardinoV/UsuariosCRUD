@@ -52,4 +52,7 @@ public class UsuarioModel {
         this.email = email;
         this.prioridad = prioridad;
     }
+
+    public UsuarioModel() {
+    }
 }
